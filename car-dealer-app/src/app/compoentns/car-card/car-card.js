@@ -1,5 +1,3 @@
-"use client";
-
 export const CarCard = ({ data }) => {
   const { Make_Name, Model_Name } = data;
   return (

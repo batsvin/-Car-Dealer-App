@@ -1,8 +1,8 @@
 "use client";
 
-import { CarCard } from "@/app/compoentns/car-card/car-card";
-import Loading from "@/app/compoentns/loading/loading";
 import { useEffect, useState } from "react";
+import Loading from "../../../compoentns/loading/loading";
+import { CarCard } from "../../../compoentns/car-card/car-card";
 
 function VehicleList({ makeId, year }) {
   const [vehicleData, setVehicleData] = useState(null);
@@ -30,7 +30,7 @@ function VehicleList({ makeId, year }) {
     return (
       <div className="container mx-auto p-8 ">
         {" "}
-        <Loading />
+        <Loading/>
       </div>
     );
 
