@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { Card } from "../../compoentns/car-card/car-card";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_APP_GET_MODELS_FROM_YEAR;
@@ -17,7 +18,6 @@ export default function VehicleList({ makeId, year }) {
         const data = await response.json();
         setVehicleData(data.Results);
       } catch (error) {
-        console.error("Error fetching vehicle models:", error);
         setError(error);
       }
     };

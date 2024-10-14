@@ -26,7 +26,6 @@ export default function VehicleForm() {
         const data = await response.json();
         setVehicle(data.Results);
       } catch (error) {
-        console.error("Error fetching vehicle makes:", error);
         setError(error);
       }
     };
@@ -116,4 +115,4 @@ export default function VehicleForm() {
       </div>
     </div>
   );
-};
+}

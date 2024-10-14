@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense } from "react";
+
 import Loading from "./compoentns/loading/loading";
 import VehicleForm from "./feature/vehicle-form/vehicle-form";
 
