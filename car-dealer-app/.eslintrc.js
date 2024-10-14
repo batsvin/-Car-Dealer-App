@@ -1,40 +1,43 @@
 module.exports = {
-    env: {
-      browser: true,
-      es2021: true,
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:jsx-a11y/recommended',
+    'next/core-web-vitals', // Next.js recommended ESLint configuration
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    extends: [
-      'eslint:recommended',
-      'plugin:react/recommended',
-      'plugin:jsx-a11y/recommended',
-      'next/core-web-vitals',
+    ecmaVersion: 12,
+    sourceType: 'module',
+    babelOptions: {
+      presets: ['next/babel'], // Explicitly add the 'next/babel' preset
+    },
+  },
+  plugins: ['react', 'jsx-a11y', 'import'],
+  rules: {
+    'no-console': 'warn',
+    'no-unused-vars': 'warn',
+    'eqeqeq': 'error',
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'jsx-a11y/anchor-is-valid': 'warn',
+    'import/order': [
+      'warn',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        'newlines-between': 'always',
+      },
     ],
-    parserOptions: {
-      ecmaFeatures: {
-        jsx: true,
-      },
-      ecmaVersion: 12,
-      sourceType: 'module',
+  },
+  settings: {
+    react: {
+      version: 'detect',
     },
-    plugins: ['react', 'jsx-a11y', 'import'],
-    rules: {
-      'no-console': 'warn',
-      'no-unused-vars': 'warn',
-      'eqeqeq': 'error',
-      'react/prop-types': 'off',
-      'react/react-in-jsx-scope': 'off',
-      'jsx-a11y/anchor-is-valid': 'warn',
-      'import/order': [
-        'warn',
-        {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-          'newlines-between': 'always',
-        },
-      ],
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
-  }
+  },
+}
