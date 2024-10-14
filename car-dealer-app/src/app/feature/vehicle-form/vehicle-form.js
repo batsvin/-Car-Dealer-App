@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URVEHICLE_TYPE_API_URL
+
 export default function VehicleForm() {
   const [vehicle, setVehicle] = useState([]);
   const [year, setYear] = useState("");
@@ -19,7 +21,7 @@ export default function VehicleForm() {
     const fetchMakes = async () => {
       try {
         const response = await fetch(
-          "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json"
+          `${apiUrl}/vehicles/GetMakesForVehicleType/car?format=json`
         );
         const data = await response.json();
         setVehicle(data.Results);
@@ -56,7 +58,7 @@ export default function VehicleForm() {
             setVehicleMake(e.target.value);
           }}
           id="vehicle"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="w-[350px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
           <option disabled>{vehicleMake}</option>
           {vehicle.map((make) => (
@@ -99,7 +101,6 @@ export default function VehicleForm() {
           } text-white font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:focus:ring-blue-800`}
           disabled={year === "" || vehicleMake === ""}
         >
-          {" "}
           {year === "" || vehicleMake === "" ? (
             "Next"
           ) : (

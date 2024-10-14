@@ -2,7 +2,7 @@
 
 import { Suspense } from "react";
 import Loading from "./compoentns/loading/loading";
-import VehicleForm from "./compoentns/vehicle-form/vehicle-form";
+import VehicleForm from "./feature/vehicle-form/vehicle-form";
 
 export default function Home() {
 
